@@ -69,5 +69,16 @@ namespace AspNetCoreTweetbookApi.Controllers.V1
 
             return Ok(post);
         }
+
+        [HttpDelete(ApiRoutes.Posts.Delete)]
+        public IActionResult Delete([FromRoute] Guid id)
+        {
+            var deleted = _postsService.DeletePost(id);
+
+            if (!deleted)
+                return NotFound();
+
+            return NoContent();
+        }
     }
 }

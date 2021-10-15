@@ -9,5 +9,6 @@ namespace AspNetCoreTweetbookApi.Services
         List<Post> GetPosts();
         Post GetPostById(Guid id);
         bool UpdatePost(Post post);
+        bool DeletePost(Guid id);
     }
 }

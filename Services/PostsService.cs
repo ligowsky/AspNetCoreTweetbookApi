@@ -36,5 +36,17 @@ namespace AspNetCoreTweetbookApi.Services
 
             return true;
         }
+
+        public bool DeletePost(Guid id)
+        {
+            var post = GetPostById(id);
+
+            if (post == null)
+                return false;
+
+            _posts.Remove(post);
+
+            return true;
+        }
     }
 }
