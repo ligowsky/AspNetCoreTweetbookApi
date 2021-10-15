@@ -9,6 +9,8 @@ namespace DotNetTweetbookApi.Contracts.V1
         public static class Posts
         {
             public const string GetAll = Base + "/posts";
+            public const string Get = Base + "/posts/{id}";
+            public const string Create = Base + "/posts";
             //public static readonly  string Create = $"{Base}/posts";
             //public static readonly  string Get = $"{Base}/{id}";
         }
