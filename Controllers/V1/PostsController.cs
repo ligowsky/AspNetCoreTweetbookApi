@@ -39,12 +39,9 @@ namespace DotNetTweetbookApi.Controllers.V1
         }
 
         [HttpPost(ApiRoutes.Posts.Create)]
-        public IActionResult Create([FromBody] CreatePostRequest postRequest)
+        public IActionResult Create([FromBody] CreatePostRequest request)
         {
-            var post = new Post { Id = postRequest.Id };
-
-            if (post.Id == Guid.Empty)
-                post.Id = Guid.NewGuid();
+            var post = new Post { Id = Guid.NewGuid(), Name = request.Name };
 
             _postsService.GetPosts().Add(post);
 
@@ -54,6 +51,23 @@ namespace DotNetTweetbookApi.Controllers.V1
             var response = new PostResponse { Id = post.Id };
 
             return Created(locationUrl, response);
+        }
+
+        [HttpPut(ApiRoutes.Posts.Update)]
+        public IActionResult Update([FromRoute] Guid id, [FromBody] UpdatePostRequest request)
+        {
+            var post = new Post
+            {
+                Id = id,
+                Name = request.Name
+            };
+
+            var updated = _postsService.UpdatePost(post);
+
+            if (!updated)
+                return NotFound();
+
+            return Ok(post);
         }
     }
 }

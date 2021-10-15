@@ -10,10 +10,6 @@ namespace DotNetTweetbookApi.Services
         public PostsService()
         {
             _posts = new List<Post>();
-            for (int i = 0; i < 5; i++)
-            {
-                _posts.Add(new Post { Id = Guid.NewGuid() });
-            }
         }
 
         private readonly List<Post> _posts;
@@ -26,6 +22,19 @@ namespace DotNetTweetbookApi.Services
         public Post GetPostById(Guid id)
         {
             return _posts.SingleOrDefault(x => x.Id == id);
+        }
+
+        public bool UpdatePost(Post postToUpdate)
+        {
+            var exist = GetPostById(postToUpdate.Id) != null;
+
+            if (!exist)
+                return false;
+
+            var index = _posts.FindIndex(x => x.Id == postToUpdate.Id);
+            _posts[index] = postToUpdate;
+
+            return true;
         }
     }
 }

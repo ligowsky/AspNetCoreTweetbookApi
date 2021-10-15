@@ -8,5 +8,6 @@ namespace DotNetTweetbookApi.Services
     {
         List<Post> GetPosts();
         Post GetPostById(Guid id);
+        bool UpdatePost(Post post);
     }
 }
