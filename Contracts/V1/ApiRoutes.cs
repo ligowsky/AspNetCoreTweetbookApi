@@ -1,4 +1,4 @@
-namespace DotNetTweetbookApi.Contracts.V1
+namespace AspNetCoreTweetbookApi.Contracts.V1
 {
     public static class ApiRoutes
     {

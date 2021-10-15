@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DotNetTweetbookApi.Services;
+using AspNetCoreTweetbookApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 
-namespace DotNetTweetbookApi
+namespace AspNetCoreTweetbookApi
 {
     public class Startup
     {
@@ -30,7 +30,7 @@ namespace DotNetTweetbookApi
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "DotNetTweetbookApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "AspNetCoreTweetbookApi", Version = "v1" });
             });
 
             services.AddSingleton<IPostsService, PostsService>();
@@ -42,7 +42,7 @@ namespace DotNetTweetbookApi
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "DotNetTweetbookApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "AspNetCoreTweetbookApi v1"));
             }
 
             app.UseHttpsRedirection();

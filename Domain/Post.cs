@@ -1,6 +1,6 @@
 using System;
 
-namespace DotNetTweetbookApi.Domain
+namespace AspNetCoreTweetbookApi.Domain
 {
     public class Post
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace DotNetTweetbookApi.Contracts.V1.Requests
+namespace AspNetCoreTweetbookApi.Contracts.V1.Requests
 {
     public class UpdatePostRequest
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace DotNetTweetbookApi.Contracts.V1.Responses
+namespace AspNetCoreTweetbookApi.Contracts.V1.Responses
 {
     public class PostResponse
     {

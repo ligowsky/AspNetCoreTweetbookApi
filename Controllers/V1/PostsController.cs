@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DotNetTweetbookApi.Contracts.V1;
-using DotNetTweetbookApi.Contracts.V1.Requests;
-using DotNetTweetbookApi.Contracts.V1.Responses;
-using DotNetTweetbookApi.Domain;
-using DotNetTweetbookApi.Services;
+using AspNetCoreTweetbookApi.Contracts.V1;
+using AspNetCoreTweetbookApi.Contracts.V1.Requests;
+using AspNetCoreTweetbookApi.Contracts.V1.Responses;
+using AspNetCoreTweetbookApi.Domain;
+using AspNetCoreTweetbookApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DotNetTweetbookApi.Controllers.V1
+namespace AspNetCoreTweetbookApi.Controllers.V1
 {
     public class PostsController : Controller
     {

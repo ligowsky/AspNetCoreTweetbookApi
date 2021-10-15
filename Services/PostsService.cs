@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DotNetTweetbookApi.Domain;
+using AspNetCoreTweetbookApi.Domain;
 
-namespace DotNetTweetbookApi.Services
+namespace AspNetCoreTweetbookApi.Services
 {
     public class PostsService : IPostsService
     {
