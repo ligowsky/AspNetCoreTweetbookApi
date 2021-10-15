@@ -2,11 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreTweetbookApi.Data;
 using AspNetCoreTweetbookApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -33,7 +35,12 @@ namespace AspNetCoreTweetbookApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AspNetCoreTweetbookApi", Version = "v1" });
             });
 
-            services.AddSingleton<IPostsService, PostsService>();
+            services.AddDbContext<DataContext>(options =>
+            {
+                options.UseSqlite(Configuration["DbConnection"]);
+            });
+
+            services.AddScoped<IPostsService, PostsService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
